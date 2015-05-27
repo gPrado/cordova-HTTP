@@ -37,6 +37,10 @@ public class CordovaHttpPostJson extends CordovaHttp implements Runnable {
             JSONObject response = new JSONObject();
             response.put("status", code);
             if (code >= 200 && code < 300) {
+                if (code == 201) {
+                    String location = request.location();
+                    response.put("location", location);
+                }
                 response.put("data", body);
                 this.getCallbackContext().success(response);
             } else {
