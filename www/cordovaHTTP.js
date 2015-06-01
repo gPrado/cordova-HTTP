@@ -31,6 +31,9 @@ var http = {
     get: function(url, params, headers, success, failure) {
         return exec(success, failure, "CordovaHttpPlugin", "get", [url, params, headers]);
     },
+    delete_: function(url, params, headers, success, failure) {
+        return exec(success, failure, "CordovaHttpPlugin", "delete", [url, params, headers]);
+    },
     uploadFile: function(url, params, headers, filePath, name, success, failure) {
         return exec(success, failure, "CordovaHttpPlugin", "uploadFile", [url, params, headers, filePath, name]);
     },
@@ -128,6 +131,9 @@ if (typeof angular !== "undefined") {
             },
             get: function(url, params, headers) {
                 return makePromise(http.get, [url, params, headers], true);
+            },
+            delete_: function(url, params, headers) {
+                return makePromise(http.delete_, [url, params, headers], true);
             },
             uploadFile: function(url, params, headers, filePath, name) {
                 return makePromise(http.uploadFile, [url, params, headers, filePath, name], true);
