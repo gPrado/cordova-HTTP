@@ -92,7 +92,7 @@
       [dictionary setObject:[NSNumber numberWithInt:operation.response.statusCode] forKey:@"status"];
       [dictionary setObject:responseObject forKey:@"data"];
       if(operation.response.statusCode == 201){
-        [dictionary setValue:[[operation.response allHeadersFields] valueForKey:@"Location"] forKey:@"location"];
+        [dictionary setValue:[[operation.response allHeaderFields] valueForKey:@"Location"] forKey:@"location"];
       }
       CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dictionary];
       [weakSelf.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -121,7 +121,7 @@
       [dictionary setObject:[NSNumber numberWithInt:operation.response.statusCode] forKey:@"status"];
       [dictionary setObject:responseObject forKey:@"data"];
       if(operation.response.statusCode == 201){
-        [dictionary setValue:[[operation.response allHeadersFields] valueForKey:@"Location"] forKey:@"location"];
+        [dictionary setValue:[[operation.response allHeaderFields] valueForKey:@"Location"] forKey:@"location"];
       }
       CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dictionary];
       [weakSelf.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
